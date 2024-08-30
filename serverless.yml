@@ -1,0 +1,23 @@
+
+service: flydeck-mongodb
+
+frameworkVersion: '3'
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: provided.al2
+  architecture: arm64 
+
+package:
+  individually: true
+
+functions:
+  main:
+    timeout: 60
+    handler: bootstrap
+    url: true
+    package:
+      artifact: bin/mongodb.zip
